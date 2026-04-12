@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Fresher Interview Guide</title>
+    <!-- Google Font & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="logo-area">
+        <div class="logo-icon"><i class="fas fa-chalkboard-user"></i></div>
+        <span class="logo-text">FresherInterview</span>
+    </div>
+    <div class="nav-links">
+        <div class="nav-option active" data-mode="common"><i class="fas fa-question-circle"></i> Common</div>
+        <div class="nav-option" data-mode="hr"><i class="fas fa-handshake"></i> HR</div>
+        <div class="nav-option" data-mode="technical"><i class="fas fa-code"></i> Technical</div>
+        <div class="nav-option" data-mode="tips"><i class="fas fa-lightbulb"></i> Tips</div>
+        <div class="nav-option" data-mode="checklist"><i class="fas fa-check-double"></i> Checklist</div>
+        <div class="nav-option" data-mode="mistakes"><i class="fas fa-exclamation-triangle"></i> Mistakes</div>
+        <!-- Dashboard Button -->
+        <button class="dashboard-btn" id="dashboardBtn">
+            <i class="fas fa-chalkboard-user"></i> Dashboard
+        </button>
+    </div>
+    <div style="width: 20px;"></div>
+</nav>
+
+<div class="main-wrapper">
+    <!-- COMMON SECTION -->
+    <div id="commonSection" class="content-section active">
+        <div class="two-column">
+            <div class="left-col">
+                <div class="category-header">
+                    <h2><i class="fas fa-comments"></i> Common Questions</h2>
+                    <button class="download-pdf-btn" data-section="common"><i class="fas fa-download"></i> PDF</button>
+                </div>
+                <div class="questions-grid" id="commonGrid"></div>
+            </div>
+            <div class="right-col">
+                <h3><i class="fas fa-message"></i> Model Answer</h3>
+                <div class="full-answer" id="commonAnswerText">✨ Click any question to see a polished, ready-to-use answer.</div>
+            </div>
+        </div>
+    </div>
+    <!-- HR SECTION -->
+    <div id="hrSection" class="content-section">
+        <div class="two-column">
+            <div class="left-col">
+                <div class="category-header">
+                    <h2><i class="fas fa-user-tie"></i> HR Questions</h2>
+                    <button class="download-pdf-btn" data-section="hr"><i class="fas fa-download"></i> PDF</button>
+                </div>
+                <div class="questions-grid" id="hrGrid"></div>
+            </div>
+            <div class="right-col">
+                <h3><i class="fas fa-message"></i> HR Answer Guide</h3>
+                <div class="full-answer" id="hrAnswerText">👥 Click any HR question for a detailed answer with STAR examples.</div>
+            </div>
+        </div>
+    </div>
+    <!-- TECHNICAL SECTION -->
+    <div id="technicalSection" class="content-section">
+        <div class="two-column">
+            <div class="left-col">
+                <div class="category-header">
+                    <h2><i class="fas fa-laptop-code"></i> Technical Questions (20)</h2>
+                    <button class="download-pdf-btn" data-section="technical"><i class="fas fa-download"></i> PDF</button>
+                </div>
+                <div class="questions-grid" id="technicalGrid"></div>
+            </div>
+            <div class="right-col">
+                <h3><i class="fas fa-microchip"></i> Deep Dive Answer</h3>
+                <div class="full-answer" id="technicalAnswerText">⚙️ Click a technical question to see a thorough explanation.</div>
+            </div>
+        </div>
+    </div>
+    <!-- TIPS SECTION -->
+    <div id="tipsSection" class="content-section">
+    <div class="category-header">
+        <h2><i class="fas fa-lightbulb"></i> Pro Interview Tips for Freshers</h2>
+    </div>
+
+    <div class="tips-grid">
+
+        <div class="tip-card">
+            <i class="fas fa-check-circle"></i>
+            <h3>Be Honest</h3>
+            <p>Always give truthful answers. Do not fake skills or experience because interviewers can easily detect fake information.</p>
+        </div>
+
+        <div class="tip-card">
+            <i class="fas fa-book"></i>
+            <h3>Strong Basics</h3>
+            <p>Focus on fundamental concepts and revise basic subjects regularly. Basics are more important than advanced topics.</p>
+        </div>
+
+        <div class="tip-card">
+            <i class="fas fa-comments"></i>
+            <h3>Good Communication</h3>
+            <p>Speak clearly and confidently using simple English. Avoid speaking too fast and stay calm while answering.</p>
+        </div>
+
+        <div class="tip-card">
+            <i class="fas fa-user"></i>
+            <h3>Self Introduction</h3>
+            <p>Keep it short and clear. Include name, education, skills, and career goals. Practice to sound natural and confident.</p>
+        </div>
+
+        <div class="tip-card">
+            <i class="fas fa-question"></i>
+            <h3>Practice Common Questions</h3>
+            <p>Prepare answers for Tell me about yourself, strengths & weaknesses, and why should we hire you.</p>
+        </div>
+
+        <div class="tip-card">
+            <i class="fas fa-smile"></i>
+            <h3>Positive Attitude</h3>
+            <p>Stay calm and confident during the interview. Don’t panic if you don’t know an answer, stay positive.</p>
+        </div>
+
+        <div class="tip-card">
+            <i class="fas fa-laptop-code"></i>
+            <h3>Technical Knowledge</h3>
+            <p>Revise programming basics, understand your projects well, and be prepared for technical questions.</p>
+        </div>
+
+        <div class="tip-card">
+            <i class="fas fa-users"></i>
+            <h3>Mock Practice</h3>
+            <p>Practice interviews with friends or online tools to improve confidence and reduce nervousness.</p>
+        </div>
+
+        <div class="tip-card">
+            <i class="fas fa-user-check"></i>
+            <h3>Body Language</h3>
+            <p>Maintain eye contact, sit properly, and avoid unnecessary hand movements during the interview.</p>
+        </div>
+
+        <div class="tip-card">
+            <i class="fas fa-brain"></i>
+            <h3>Don’t Memorize Answers</h3>
+            <p>Understand concepts instead of memorizing. Speak naturally like a conversation, not like a script.</p>
+        </div>
+
+        <div class="tip-card">
+            <i class="fas fa-clock"></i>
+            <h3>Time Management</h3>
+            <p>Be punctual, reach early or join on time, and avoid last-minute rush for interviews.</p>
+        </div>
+
+        <div class="tip-card">
+            <i class="fas fa-arrow-up"></i>
+            <h3>Learn from Rejection</h3>
+            <p>Don’t lose confidence. Improve after every interview and keep practicing continuously.</p>
+        </div>
+
+    </div>
+</div>
+    <!-- CHECKLIST SECTION -->
+    <div id="checklistSection" class="content-section">
+    <div class="category-header">
+        <h2><i class="fas fa-clipboard-list"></i> Ultimate Interview Checklist</h2>
+    </div>
+
+    <div class="checklist-grid">
+
+        <div class="checklist-item">
+            <i class="fas fa-check-circle"></i>
+            <div>
+                <strong>Company Research</strong>
+                <span>
+                    Understand company name, products and services.<br>
+                    Carefully read the job role description (JD).<br>
+                    Learn company culture and values.<br>
+                    Check recent news and achievements.
+                </span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <i class="fas fa-check-circle"></i>
+            <div>
+                <strong>Basic Examples Ready</strong>
+                <span>
+                    Prepare real-life teamwork examples.<br>
+                    Remember problem-solving situations or college projects.<br>
+                    Follow Situation – Action – Result format.<br>
+                    Practice simple and clear answers.
+                </span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <i class="fas fa-check-circle"></i>
+            <div>
+                <strong>Self Introduction</strong>
+                <span>
+                    Prepare a 1-minute short introduction.<br>
+                    Include name, education, and skills.<br>
+                    Mention interests and career goals.<br>
+                    Practice confident and clear speaking.
+                </span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <i class="fas fa-check-circle"></i>
+            <div>
+                <strong>Technical Preparation</strong>
+                <span>
+                    Revise basic programming concepts.<br>
+                    Understand your projects clearly.<br>
+                    Revise DBMS, OS, and OOP topics.<br>
+                    Practice basic interview questions.
+                </span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <i class="fas fa-check-circle"></i>
+            <div>
+                <strong>Questions to Ask</strong>
+                <span>
+                    Ask 1–2 questions at the end of interview.<br>
+                    Example: team structure or learning opportunities.<br>
+                    Shows your interest in the role.<br>
+                    Keep questions simple and respectful.
+                </span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <i class="fas fa-check-circle"></i>
+            <div>
+                <strong>Resume Preparation</strong>
+                <span>
+                    Keep resume clean and updated.<br>
+                    Be ready to explain skills and projects.<br>
+                    Do not include fake information.<br>
+                    Follow a proper professional format.
+                </span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <i class="fas fa-check-circle"></i>
+            <div>
+                <strong>Dress Properly</strong>
+                <span>
+                    Wear clean formal clothes.<br>
+                    Maintain proper grooming.<br>
+                    Keep a simple professional look.<br>
+                    First impression is very important.
+                </span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <i class="fas fa-check-circle"></i>
+            <div>
+                <strong>Tech Setup (Online Interview)</strong>
+                <span>
+                    Check stable internet connection.<br>
+                    Test camera and microphone.<br>
+                    Choose a quiet background.<br>
+                    Keep backup option ready (hotspot).
+                </span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <i class="fas fa-check-circle"></i>
+            <div>
+                <strong>Documents Ready</strong>
+                <span>
+                    Keep multiple copies of resume.<br>
+                    Carry ID proof (Aadhar/PAN).<br>
+                    Scan and organize certificates.<br>
+                    Store everything in a folder.
+                </span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <i class="fas fa-check-circle"></i>
+            <div>
+                <strong>Time Management</strong>
+                <span>
+                    Be ready 10–15 minutes early.<br>
+                    Avoid any delay.<br>
+                    Stay calm and focused.<br>
+                    Show time discipline and professionalism.
+                </span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <i class="fas fa-check-circle"></i>
+            <div>
+                <strong>Confidence & Body Language</strong>
+                <span>
+                    Maintain straight posture.<br>
+                    Keep eye contact while speaking.<br>
+                    Speak slowly and clearly.<br>
+                    Control nervousness with deep breathing.
+                </span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <i class="fas fa-check-circle"></i>
+            <div>
+                <strong>Follow-up</strong>
+                <span>
+                    Send a thank-you email after interview.<br>
+                    Keep message short and polite.<br>
+                    Reconfirm your interest in role.<br>
+                    Leave a professional impression.
+                </span>
+            </div>
+        </div>
+
+    </div>
+</div>
+    <!-- MISTAKES SECTION -->
+   <div id="mistakesSection" class="content-section">
+    <div class="category-header">
+        <h2><i class="fas fa-ban"></i> Top Mistakes & How to Avoid Them</h2>
+    </div>
+
+    <div class="mistakes-grid">
+
+        <div class="mistake-card">
+            <i class="fas fa-times-circle"></i>
+            <h3>Not Researching Company</h3>
+            <p><b>Mistake:</b> No idea about company or role.<br>
+            <b>How to Avoid:</b> Read company website, understand job description (JD), and check products and services.</p>
+        </div>
+
+        <div class="mistake-card">
+            <i class="fas fa-times-circle"></i>
+            <h3>Weak Communication</h3>
+            <p><b>Mistake:</b> Speaking unclear or too fast.<br>
+            <b>How to Avoid:</b> Practice speaking daily, use simple English, and stay calm while answering.</p>
+        </div>
+
+        <div class="mistake-card">
+            <i class="fas fa-times-circle"></i>
+            <h3>Poor Self Introduction</h3>
+            <p><b>Mistake:</b> Long and confusing introduction.<br>
+            <b>How to Avoid:</b> Keep it 1 minute short, include name, education, skills, and practice multiple times.</p>
+        </div>
+
+        <div class="mistake-card">
+            <i class="fas fa-times-circle"></i>
+            <h3>Memorizing Answers</h3>
+            <p><b>Mistake:</b> Learning answers like a script.<br>
+            <b>How to Avoid:</b> Understand concepts instead, speak naturally, and practice ideas not exact lines.</p>
+        </div>
+
+        <div class="mistake-card">
+            <i class="fas fa-times-circle"></i>
+            <h3>Nervousness / Lack of Confidence</h3>
+            <p><b>Mistake:</b> Shaking or forgetting answers.<br>
+            <b>How to Avoid:</b> Practice mock interviews, take deep breaths, and stay positive and relaxed.</p>
+        </div>
+
+        <div class="mistake-card">
+            <i class="fas fa-times-circle"></i>
+            <h3>Weak Technical Basics</h3>
+            <p><b>Mistake:</b> Not knowing fundamentals.<br>
+            <b>How to Avoid:</b> Revise basic subjects daily, focus on core concepts, and practice coding questions.</p>
+        </div>
+
+        <div class="mistake-card">
+            <i class="fas fa-times-circle"></i>
+            <h3>Poor Body Language</h3>
+            <p><b>Mistake:</b> No eye contact or bad posture.<br>
+            <b>How to Avoid:</b> Sit straight, maintain eye contact, and avoid unnecessary hand movements.</p>
+        </div>
+
+        <div class="mistake-card">
+            <i class="fas fa-times-circle"></i>
+            <h3>Not Knowing Resume</h3>
+            <p><b>Mistake:</b> Cannot explain resume points.<br>
+            <b>How to Avoid:</b> Read resume properly, prepare project explanations, and be honest about skills.</p>
+        </div>
+
+        <div class="mistake-card">
+            <i class="fas fa-times-circle"></i>
+            <h3>Not Asking Questions</h3>
+            <p><b>Mistake:</b> No questions to interviewer.<br>
+            <b>How to Avoid:</b> Prepare 1–2 simple questions and ask about role or team to show interest.</p>
+        </div>
+
+        <div class="mistake-card">
+            <i class="fas fa-times-circle"></i>
+            <h3>Time Management Issues</h3>
+            <p><b>Mistake:</b> Joining late or unprepared.<br>
+            <b>How to Avoid:</b> Reach early (10–15 min) and check internet/setup before online interview.</p>
+        </div>
+
+        <div class="mistake-card">
+            <i class="fas fa-times-circle"></i>
+            <h3>Panic When Don’t Know Answer</h3>
+            <p><b>Mistake:</b> Stress or silence.<br>
+            <b>How to Avoid:</b> Stay calm, say “I don’t know but I am willing to learn”, and think logically.</p>
+        </div>
+
+        <div class="mistake-card">
+            <i class="fas fa-times-circle"></i>
+            <h3>No Mock Practice</h3>
+            <p><b>Mistake:</b> Directly going to real interview.<br>
+            <b>How to Avoid:</b> Practice with friends or mock interviews and improve step by step.</p>
+        </div>
+
+    </div>
+
+    
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

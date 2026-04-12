@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS Resume Studio · Clean & Arranged Preview</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ========== NAVIGATION BAR ========== -->
+<nav class="navbar">
+    <div class="logo">FresherResume</div>
+    <div class="nav-links">
+        <div class="nav-item active" data-page="resume"> Builder</div>
+        <div class="nav-item" data-page="tips">ATS Tips</div>
+        <div class="nav-item" data-page="action-verbs"> Action Verbs</div>
+        <div class="nav-item" data-page="checklist">Checklist & Mistakes</div>
+        <!-- Dashboard Button -->
+        <button class="dashboard-btn" id="dashboardBtn">
+             Dashboard
+        </button>
+    </div>
+</nav>
+
+<!-- ========== PAGE 1: RESUME BUILDER ========= -->
+<div id="page-resume" class="content-area active">
+    <div class="builder-split">
+        <!-- LEFT FORM -->
+        <div class="builder-left">
+            <h2 style="margin-bottom:1.5rem; color:#0f3f5e;">Freshers Resume Builder</h2>
+           
+
+            <div class="section-head">👤 Personal Details</div>
+            <div class="grid-2">
+                <div class="input-group"><label>Full name</label><input type="text" id="nameInput" value="Priya Krishnan"></div>
+                <div class="input-group"><label>Title</label><input type="text" id="titleInput" value="B.Tech Computer Science"></div>
+            </div>
+            <div class="grid-2">
+                <div class="input-group"><label>Email</label><input type="text" id="emailInput" value="priya.k@example.com"></div>
+                <div class="input-group"><label>Phone</label><input type="text" id="phoneInput" value="+91 98765 43210"></div>
+            </div>
+            <div class="grid-2">
+                <div class="input-group"><label>Location</label><input type="text" id="locationInput" value="Chennai, India"></div>
+                <div class="input-group"><label>LinkedIn</label><input type="text" id="linkedinInput" value="linkedin.com/in/priya-k"></div>
+            </div>
+
+            <div class="section-head">🎯 Career Objective</div>
+            <div class="input-group"><textarea id="objectiveInput" rows="2">Motivated Computer Science graduate with strong foundation in Python, SQL, and web development. Seeking entry-level software engineer role.</textarea></div>
+
+            <div class="section-head">🎓 Education</div>
+            <div class="grid-2">
+                <div class="input-group"><label>Degree</label><input type="text" id="degreeInput" value="B.Tech Computer Science"></div>
+                <div class="input-group"><label>College</label><input type="text" id="collegeInput" value="Anna University"></div>
+            </div>
+            <div class="grid-2">
+                <div class="input-group"><label>Graduation year</label><input type="text" id="yearInput" value="2025"></div>
+                <div class="input-group"><label>CGPA/%</label><input type="text" id="cgpaInput" value="8.7 CGPA"></div>
+            </div>
+            <div class="input-group"><label>12th / Diploma %</label><input type="text" id="twelfthInput" value="88%"></div>
+
+            <div class="section-head">⚙️ Technical Skills</div>
+            <div class="input-group"><input type="text" id="skillsInput" value="Python, Java, SQL, HTML/CSS, JavaScript, React, Git, Tableau"></div>
+
+            <div class="section-head" style="justify-content: space-between;">
+                <span>💼 Internships</span>
+                <button class="btn-add" id="addInternBtn">+ Add Internship</button>
+            </div>
+            <div id="internsContainer"></div>
+
+            <div class="section-head" style="justify-content: space-between;">
+                <span>📌 Projects</span>
+                <button class="btn-add" id="addProjectBtn">+ Add Project</button>
+            </div>
+            <div id="projectsContainer"></div>
+
+            <div class="section-head">🏅 Certifications</div>
+            <div class="input-group"><textarea id="certInput" rows="2">• Google Data Analytics Certificate (2024)\n• SQL Advanced Certificate (HackerRank)</textarea></div>
+
+            <div class="section-head">🏆 Achievements</div>
+            <div class="input-group"><textarea id="achievementsInput" rows="2">• Winner, Smart India Hackathon 2024\n• 2nd place in coding competition (CodeChef)</textarea></div>
+
+            <div class="section-head">🗣️ Languages</div>
+            <div class="input-group"><input type="text" id="langInput" value="English (fluent), Hindi (native), Tamil (conversational)"></div>
+        </div>
+
+        <!-- RIGHT PREVIEW -->
+        <div class="builder-right">
+            <div class="preview-card-clean">
+                <h3 style="margin-bottom:1.2rem; color:#0e2938;">📋 Resume Preview</h3>
+                <div class="preview-grid" id="resumePreview">
+                    <div class="preview-sidebar" id="cleanSidebar">
+                        <div style="font-size:1.8rem; font-weight:600;" id="cleanName">Priya Krishnan</div>
+                        <div style="color:#b5d6f5; margin-bottom:1rem;" id="cleanTitle">B.Tech Computer Science</div>
+                        <h4>CONTACT</h4>
+                        <div class="preview-contact-item" id="cleanEmail">📧 priya.k@example.com</div>
+                        <div class="preview-contact-item" id="cleanPhone">📱 +91 98765 43210</div>
+                        <div class="preview-contact-item" id="cleanLocation">📍 Chennai, India</div>
+                        <div class="preview-contact-item" id="cleanLinkedin">🔗 linkedin.com/in/priya-k</div>
+                        <h4>TECHNICAL SKILLS</h4>
+                        <div class="skill-chips" id="cleanSkills"></div>
+                        <h4>LANGUAGES</h4>
+                        <div id="cleanLanguages" class="language-item">English (fluent), Hindi (native), Tamil (conversational)</div>
+                        <h4>CERTIFICATIONS</h4>
+                        <div id="cleanCertifications" style="font-size:0.85rem;">• Google Data Analytics Certificate (2024)<br>• SQL Advanced Certificate</div>
+                    </div>
+                    <div class="preview-main">
+                        <div class="preview-section-title">OBJECTIVE</div>
+                        <div style="font-style:italic; margin-bottom:1rem;" id="cleanObjective">Motivated Computer Science graduate with strong foundation in Python, SQL, and web development.</div>
+                        <div class="preview-section-title">EDUCATION</div>
+                        <div style="margin-bottom:1rem;" id="cleanEducation"><strong>B.Tech Computer Science</strong> – Anna University, 2025<br>CGPA: 8.7 CGPA | 12th: 88%</div>
+                        <div class="preview-section-title">INTERNSHIPS</div>
+                        <div id="cleanInternships"></div>
+                        <div class="preview-section-title">PROJECTS</div>
+                        <div id="cleanProjects"></div>
+                        <div class="preview-section-title">ACHIEVEMENTS</div>
+                        <div id="cleanAchievements">• Winner, Smart India Hackathon 2024<br>• 2nd place in coding competition (CodeChef)</div>
+                    </div>
+                </div>
+                <div class="download-section">
+                    <button class="download-btn" onclick="downloadResume()">📥 Download Resume (HTML)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- OTHER PAGES -->
+<div id="page-tips" class="content-area">
+    <table class="info-table">
+           <thead>
+        <tr>
+            <th>sr no</th>
+            <th>Tip</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>1</td>
+            <td><strong>Formatting</strong></td>
+            <td>
+                <ul>
+                    <li>Use simple format (.docx or .pdf)</li>
+                    <li>Avoid images, graphics, and columns</li>
+                    <li>Use fonts like Arial or Calibri (10–12 pt)</li>
+                    <li>Keep layout clean and readable</li>
+                </ul>
+            </td>
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td><strong>Keywords</strong></td>
+            <td>
+                <ul>
+                    <li>Add keywords from job description</li>
+                    <li>Use full forms and abbreviations</li>
+                    <li>Include skills, tools, and technologies</li>
+                    <li>Repeat important keywords naturally</li>
+                </ul>
+            </td>
+        </tr>
+
+        <tr>
+            <td>3</td>
+            <td><strong>Quantify Achievements</strong></td>
+            <td>
+                <ul>
+                    <li>Use numbers to show impact</li>
+                    <li>Example: “Improved performance by 20%”</li>
+                    <li>Add measurable results</li>
+                    <li>Shows real contribution</li>
+                </ul>
+            </td>
+        </tr>
+
+        <tr>
+            <td>4</td>
+            <td><strong>Standard Headings</strong></td>
+            <td>
+                <ul>
+                    <li>Use sections: SUMMARY, SKILLS, PROJECTS</li>
+                    <li>Add EDUCATION and EXPERIENCE</li>
+                    <li>Keep headings simple</li>
+                    <li>Helps ATS scan easily</li>
+                </ul>
+            </td>
+        </tr>
+
+        <tr>
+            <td>5</td>
+            <td><strong>File Name</strong></td>
+            <td>
+                <ul>
+                    <li>Use professional naming format</li>
+                    <li>Example: FirstName_LastName_Resume.pdf</li>
+                    <li>Avoid random names like resume123</li>
+                    <li>Keep it clean and simple</li>
+                </ul>
+            </td>
+        </tr>
+
+        <tr>
+            <td>6</td>
+            <td><strong>Action Verbs</strong></td>
+            <td>
+                <ul>
+                    <li>Start bullets with strong verbs</li>
+                    <li>Example: Developed, Designed, Implemented</li>
+                    <li>Avoid “Responsible for”</li>
+                    <li>Makes resume more impactful</li>
+                </ul>
+            </td>
+        </tr>
+
+        <tr>
+            <td>7</td>
+            <td><strong>Keep It Short</strong></td>
+            <td>
+                <ul>
+                    <li>Limit resume to 1 page (for freshers)</li>
+                    <li>Include only relevant information</li>
+                    <li>Avoid unnecessary details</li>
+                    <li>Keep content precise</li>
+                </ul>
+            </td>
+        </tr>
+
+        <tr>
+            <td>8</td>
+            <td><strong>Avoid Spelling Errors</strong></td>
+            <td>
+                <ul>
+                    <li>Check grammar and spelling carefully</li>
+                    <li>Use simple and clear language</li>
+                    <li>Avoid complex sentences</li>
+                    <li>Errors can reduce chances</li>
+                </ul>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="page-action-verbs" class="content-area">
+    <table class="info-table">
+       <thead>
+    <tr>
+        <th>Category</th>
+        <th>Action Verbs</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td><strong>Strong Verbs</strong></td>
+        <td>Developed · Designed · Implemented · Built · Created</td>
+    </tr>
+
+    <tr>
+        <td><strong>Technical Work</strong></td>
+        <td>Analyzed · Optimized · Improved · Tested · Debugged</td>
+    </tr>
+
+    <tr>
+        <td><strong>Teamwork & Communication</strong></td>
+        <td>Collaborated · Coordinated · Assisted · Supported · Communicated</td>
+    </tr>
+
+    <tr>
+        <td><strong>Projects & Achievements</strong></td>
+        <td>Completed · Delivered · Achieved · Executed · Produced</td>
+    </tr>
+
+    <tr>
+        <td><strong>Usage Tip</strong></td>
+        <td>Start every resume bullet with a strong action verb</td>
+    </tr>
+
+    <tr>
+        <td><strong>Avoid</strong></td>
+        <td>Responsible for · Worked on · Helped · Tried</td>
+    </tr>
+</tbody>
+</table>
+    </table>
+</div>
+
+<div id="page-checklist" class="content-area">
+    <table class="info-table">
+       
+        </tbody>
+    </table>
+    <table class="info-table">
+        <thead>
+    <tr>
+        <th>🚩 Common Mistakes to Avoid</th>
+    </tr>
+</thead>
+<tbody>
+    <tr><td>✕ "Responsible for" – use action verbs instead</td></tr>
+    <tr><td>✕ Missing dates (internships, projects)</td></tr>
+    <tr><td>✕ Keyword stuffing – unnatural repetition</td></tr>
+    <tr><td>✕ Soft skills without proof ("team player")</td></tr>
+    <tr><td>✕ Graphics, charts, images – ATS can't read</td></tr>
+    <tr><td>✕ Typos or inconsistent punctuation</td></tr>
+    <tr><td>✕ Too many bullets (>6 per job) – keep 4-5</td></tr>
+    <tr><td>✕ Fancy fonts (script, decorative)</td></tr>
+
+    <!-- Added Fresher Mistakes -->
+    <tr><td>✕ Using fancy design (colors, columns, layouts confuse ATS)</td></tr>
+    <tr><td>✕ No keywords from job description (reduces ATS matching)</td></tr>
+    <tr><td>✕ Writing long paragraphs (use short bullet points)</td></tr>
+    <tr><td>✕ Not adding numbers (no measurable impact shown)</td></tr>
+    <tr><td>✕ Too long resume (keep it 1 page for freshers)</td></tr>
+    <tr><td>✕ Spelling & grammar mistakes (shows lack of attention)</td></tr>
+    <tr><td>✕ Unprofessional file name (e.g., resume_final123.pdf)</td></tr>
+    <tr><td>✕ Irrelevant information (unnecessary hobbies/details)</td></tr>
+    <tr><td>✕ No proper structure (missing Skills, Projects, Education)</td></tr>
+</tbody>
+</table>
+        </tbody>
+    </table>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

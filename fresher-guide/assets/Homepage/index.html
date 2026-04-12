@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>FresherGuide · Career Launchpad | Smart Contact Form</title>
+    <!-- Font Awesome 6 (Free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+    <form action="http://localhost/fresherusguide/backend/register.php" method="POST"></form>
+</head>
+<body>
+
+<!-- DYNAMIC BACKGROUND SLIDESHOW -->
+<div class="dynamic-bg-slideshow" id="bgSlideshow">
+    <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop');"></div>
+    <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop');"></div>
+    <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop');"></div>
+    <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop');"></div>
+    <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2074&auto=format&fit=crop');"></div>
+</div>
+<div class="dynamic-bg-overlay"></div>
+<div class="floating-particles" id="particles"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo-area" onclick="scrollToSection('home')">
+        <span class="logo-icon"><i class="fa-regular fa-graduation-cap"></i></span>
+        <span>FresherGuide</span>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <div class="nav-links" id="navLinks">
+        <a onclick="scrollToSection('home'); closeMenu()">Home</a>
+        <a onclick="scrollToSection('About'); closeMenu()">About</a>
+        <a onclick="scrollToSection('services'); closeMenu()">Services</a>
+        <a class="register-nav-btn" onclick="openRegisterModal(); closeMenu()">Register</a>
+        <a class="login-nav-btn" onclick="openLoginModal(); closeMenu()">Login</a>
+    </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section id="home" class="landing-section">
+    <div class="hero-content">
+        <div class="hero-quote">
+            Every successful career starts with the right first step.<br>
+            <span>Take it now.</span>
+        </div>
+        <button class="btn-hero-reg" onclick="openRegisterModal()">
+            <i class="fa-regular fa-user-plus"></i> Register Free
+        </button>
+    </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="About" class="info-section">
+    <div class="info-card">
+        <h2><i class="fa-regular fa-people-group"></i> About FresherGuide</h2>
+        <div class="about-wrapper">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Students">
+            </div>
+            <div>
+                <div class="mission-card">
+                    <h3><i class="fa-regular fa-bullseye"></i> Our Mission</h3>
+                    <p>Empower freshers with confidence and workplace readiness to succeed in their first job. We provide practical, step-by-step guidance to bridge the gap between academic knowledge and corporate expectations.</p>
+                </div>
+                <div class="vision-card">
+                    <h3><i class="fa-regular fa-eye"></i> Our Vision</h3>
+                    <p>Become India's most trusted career guidance platform for freshers by delivering simple, actionable, and practical knowledge that transforms graduates into confident professionals.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section id="services" class="info-section">
+    <div class="info-card">
+        <h2><i class="fa-regular fa-briefcase"></i> Our Premium Services</h2>
+        <div class="service-grid">
+            <div class="service-item" onclick="openServiceModal('Resume Building')">
+                <i class="fa-regular fa-file-lines"></i>
+                <h3>Resume Building</h3>
+                <p>ATS-friendly professional resume</p>
+            </div>
+            <div class="service-item" onclick="openServiceModal('Interview Preparation')">
+                <i class="fa-regular fa-comments"></i>
+                <h3>Interview Prep</h3>
+                <p>Mock interviews & strategies</p>
+            </div>
+            <div class="service-item" onclick="openServiceModal('Office Etiquette')">
+                <i class="fa-regular fa-handshake"></i>
+                <h3>Office Etiquette</h3>
+                <p>Workplace professionalism</p>
+            </div>
+            <div class="service-item" onclick="openServiceModal('Salary Negotiation')">
+                <i class="fa-regular fa-money-bill"></i>
+                <h3>Salary Negotiation</h3>
+                <p>Get the best package</p>
+            </div>
+            <div class="service-item" onclick="openServiceModal('Work Culture')">
+                <i class="fa-regular fa-building"></i>
+                <h3>Work Culture</h3>
+                <p>Navigate corporate environment</p>
+            </div>
+            <div class="service-item" onclick="openServiceModal('Communication Skills')">
+                <i class="fa-regular fa-message"></i>
+                <h3>Communication</h3>
+                <p>Verbal & written excellence</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT SECTION with working email delivery -->
+<section id="contact" class="info-section">
+    <div class="info-card">
+        <h2><i class="fa-regular fa-address-card"></i> Get In Touch</h2>
+        <div class="contact-wrapper">
+            <div class="contact-details-full">
+                <div class="contact-row-large" onclick="copyToClipboard('juvibhute0805@gmail.com')">
+                    <i class="fa-regular fa-envelope"></i><span>juvibhute0805@gmail.com</span>
+                </div>
+                <div class="contact-row-large" onclick="copyToClipboard('+91 98765 43210')">
+                    <i class="fa-regular fa-phone"></i><span>+91 98765 43210</span>
+                </div>
+                <div class="contact-row-large" onclick="window.open('https://maps.google.com/?q=91+MG+Road+Indiranagar+Bengaluru','_blank')">
+                    <i class="fa-regular fa-location-dot"></i><span>91, MG Road, Indiranagar, Bengaluru</span>
+                </div>
+                <div class="contact-row-large">
+                    <i class="fa-regular fa-clock"></i><span>Mon-Fri: 9:00 AM - 7:00 PM</span>
+                </div>
+            </div>
+            <div class="contact-form-full">
+                <h3 style="margin-bottom:1rem;">Send a Message</h3>
+                <form id="directContactForm" action="https://formsubmit.co/juvibhute0805@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="🔥 New Contact Message from FresherGuide Website!">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="text" name="name" id="contactName" placeholder="Your Full Name" required>
+                    <input type="email" name="email" id="contactEmail" placeholder="Your Email Address" required>
+                    <textarea name="message" id="contactMessage" placeholder="Your Message / Query" rows="3" required></textarea>
+                    <button type="submit" id="sendMsgBtn"><i class="fa-regular fa-paper-plane"></i> Send Message</button>
+                </form>
+                <p style="font-size: 0.75rem; margin-top: 8px; color:#3b82f6;"><i class="fas fa-envelope"></i> Your message will be delivered directly to juvibhute0805@gmail.com</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICE MODAL POPUP -->
+<div id="serviceModal" class="service-modal">
+    <div class="service-modal-content">
+        <div class="service-modal-header">
+            <button class="modal-close-btn" onclick="closeServiceModal()">✕</button>
+            <div class="service-icon" id="modalIcon">📄</div>
+            <h2 id="modalTitle">Resume Building Service</h2>
+            <p id="modalSubtitle">Create a professional, ATS-friendly resume that stands out to recruiters</p>
+        </div>
+        <div class="service-modal-body" id="modalBody">
+            <!-- Dynamic content will be inserted here -->
+        </div>
+        <div class="service-modal-footer">
+            <button class="enquire-btn" onclick="enquireAboutService()">
+                <i class="fas fa-envelope"></i> Enquire About This Service
+            </button>
+            <button class="close-footer-btn" onclick="closeServiceModal()">Close</button>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>About FresherGuide</h3>
+            <p>FresherGuide is your trusted career launchpad, providing practical guidance and resources to help freshers succeed in their first job. Our mission is to empower graduates with the confidence and skills needed to navigate the professional world with ease.</p>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a onclick="scrollToSection('home')">Home</a></li>
+                <li><a onclick="scrollToSection('contact')">Contact</a></li>
+                
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Contact Info</h3>
+            <div class="contact-info" onclick="copyToClipboard('juvibhute0805@gmail.com')">
+                <i class="fa-regular fa-envelope"></i> fresheruguide@gmail.com
+            </div>
+            <div class="contact-info" onclick="copyToClipboard('+91 98765 43210')">
+                <i class="fa-regular fa-phone"></i> +91 9763736145
+            </div>
+            <div class="contact-info" onclick="window.open('https://maps.google.com/?q=91+MG+Road+Indiranagar+Bengaluru','_blank')">
+                <i class="fa-regular fa-location-dot"></i> 91, Shegaon Mahashtra
+            </div>
+            <div class="contact-info">
+                <i class="fa-regular fa-clock"></i> Mon-Fri: 9:00 AM - 7:00 PM
+            </div>
+        </div>
+        
+        
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <i class="fa-regular fa-copyright"></i> 2026 FresherGuide · Made with <i class="fa-regular fa-heart"></i> in India · All Rights Reserved
+    </div>
+</footer>
+
+<!-- AUTH MODAL - BLUE THEME -->
+<div id="authModal" class="auth-modal">
+    <div class="close-modal" onclick="closeAuthModal()"><i class="fas fa-times"></i></div>
+    <div class="auth-card-modern">
+        <div class="auth-header-modern">
+            <div class="logo-badge"><i class="fas fa-graduation-cap"></i></div>
+            <h3>Welcome to FresherGuide</h3>
+            <p>Start your journey to career success</p>
+        </div>
+        <div class="auth-tabs">
+            <div class="auth-tab active" onclick="switchAuthTab('register')">📝 Register</div>
+            <div class="auth-tab" onclick="switchAuthTab('login')">🔐 Login</div>
+        </div>
+        <div class="auth-body">
+            <div id="registerPanel" class="auth-form-panel active">
+                <form onsubmit="return handleRegister(event)">
+                    <div class="input-group-modern">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="regName" placeholder="Full Name">
+                        <div class="error-text" id="regNameError"></div>
+                    </div>
+                    <div class="input-group-modern">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="regEmail" placeholder="Email Address">
+                        <div class="error-text" id="regEmailError"></div>
+                    </div>
+                    <div class="input-group-modern">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="regPassword" placeholder="Password (min 6 characters)">
+                        <span class="password-toggle-icon" onclick="togglePassword('regPassword', this)"><i class="far fa-eye-slash"></i></span>
+                        <div class="error-text" id="regPasswordError"></div>
+                    </div>
+                    <div class="input-group-modern">
+                        <i class="fas fa-check-circle"></i>
+                        <input type="password" id="regConfirmPassword" placeholder="Confirm Password">
+                        <span class="password-toggle-icon" onclick="togglePassword('regConfirmPassword', this)"><i class="far fa-eye-slash"></i></span>
+                        <div class="error-text" id="regConfirmError"></div>
+                    </div>
+                    <button type="submit" class="auth-submit-btn"><i class="fas fa-user-plus"></i> Create Free Account</button>
+                </form>
+                <div class="auth-footer">Already have an account? <span onclick="switchAuthTab('login')">Login here</span></div>
+            </div>
+
+            <div id="loginPanel" class="auth-form-panel">
+                <form onsubmit="return handleLogin(event)">
+                    <div class="input-group-modern">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="loginEmail" placeholder="Email Address">
+                        <div class="error-text" id="loginEmailError"></div>
+                    </div>
+                    <div class="input-group-modern">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="loginPassword" placeholder="Password">
+                        <span class="password-toggle-icon" onclick="togglePassword('loginPassword', this)"><i class="far fa-eye-slash"></i></span>
+                        <div class="error-text" id="loginPasswordError"></div>
+                    </div>
+                    <button type="submit" class="auth-submit-btn"><i class="fas fa-arrow-right-to-bracket"></i> Login</button>
+                </form>
+                <div class="auth-footer">New user? <span onclick="switchAuthTab('register')">Create an account</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- External JavaScript -->
+<script src="script.js"></script>
+</body>
+</html>

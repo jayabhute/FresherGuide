@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Calculator · CTC to Take-Home</title>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ===== NAVIGATION BAR ===== -->
+    <nav class="navbar">
+        <div class="logo">💰 Salary Guide</div>
+        <div class="nav-links">
+            <div class="nav-item active" data-target="company-section">Company-wise Salary</div>
+            <div class="nav-item" data-target="components-section">Components Table</div>
+            <div class="nav-item" data-target="slip-section">Salary Slip</div>
+            <div class="nav-item" data-target="calculator-section">Calculator</div>
+            <div class="nav-item" data-target="negotiation-section">Negotiation Guide</div>
+            <!-- DASHBOARD BUTTON - Only button, no page/section -->
+            <div class="nav-item dashboard-highlight" data-target="dashboard-placeholder">
+                <i class="fas fa-chart-line"></i> Dashboard
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="main-content">
+        <!-- COMPANY SECTION -->
+        <section id="company-section" class="section">
+            <div class="section-card">
+                <div class="section-title"><i class="fas fa-building"></i> Company-wise Fresher Salary</div>
+                <div class="company-selector">
+                    <span class="selector-label"><i class="fas fa-hand-pointer"></i> Select Company:</span>
+                    <select id="companySelect">
+                        <option value="tcs">Tata Consultancy Services (TCS)</option>
+                        <option value="infosys">Infosys</option>
+                        <option value="wipro">Wipro</option>
+                        <option value="hcl">HCL Technologies</option>
+                        <option value="accenture">Accenture</option>
+                        <option value="microsoft">Microsoft</option>
+                        <option value="google">Google</option>
+                        <option value="amazon">Amazon</option>
+                        <option value="flipkart">Flipkart</option>
+                        <option value="deloitte">Deloitte</option>
+                    </select>
+                    <div class="company-badge" id="selectedCompanyBadge"><i class="fas fa-check-circle"></i> TCS Selected</div>
+                </div>
+                <div id="branchesTableContainer"></div>
+            </div>
+        </section>
+
+        <!-- COMPONENTS SECTION -->
+        <section id="components-section" class="section hidden">
+            <div class="section-card">
+                <div class="section-title"><i class="fas fa-table"></i> Salary Components Table</div>
+                <table class="components-table">
+                    <thead>
+                        <tr><th width="22%">Component</th><th width="35%">Description</th><th width="23%">Percentage / Value</th><th width="20%">Taxability</th> </>
+                    </thead>
+                    <tbody id="componentsBody"></tbody>
+                  </table
+            </div>
+        </section>
+
+        <!-- SALARY SLIP SECTION -->
+        <section id="slip-section" class="section hidden">
+            <div class="section-card">
+                <div class="section-title"><i class="fas fa-file-invoice"></i> Salary Slip</div>
+                <div class="salary-slip" id="salarySlip"></div>
+            </div>
+        </section>
+
+        <!-- CALCULATOR SECTION -->
+        <section id="calculator-section" class="section hidden">
+            <div class="section-card">
+                <div class="section-title"><i class="fas fa-calculator"></i> In Hand Salary Calculator</div>
+                <div class="calc-wrapper">
+                    <div class="input-grid">
+                        <div class="input-item">
+                            <label><i class="fas fa-building"></i> Cost to Company (CTC) in ₹</label>
+                            <input type="number" id="ctcInput" value="600000" step="10000" min="0">
+                        </div>
+                        <div class="input-item">
+                            <label><i class="fas fa-percent"></i> Bonus Included in CTC Percentage</label>
+                            <input type="number" id="bonusPercent" value="15" step="1" min="0" max="100">
+                        </div>
+                        <div class="input-item">
+                            <label><i class="fas fa-file-invoice"></i> Monthly Professional Tax</label>
+                            <input type="number" id="profTax" value="200" step="10" min="0">
+                        </div>
+                        <div class="input-item">
+                            <label><i class="fas fa-piggy-bank"></i> Monthly Employer PF</label>
+                            <input type="number" id="employerPF" value="1800" step="100" min="0">
+                        </div>
+                        <div class="input-item">
+                            <label><i class="fas fa-user"></i> Monthly Employee PF</label>
+                            <input type="number" id="employeePF" value="1800" step="100" min="0">
+                        </div>
+                        <div class="input-item">
+                            <label><i class="fas fa-minus-circle"></i> Monthly Additional Deduction 1</label>
+                            <input type="number" id="additionalDed1" value="0" step="100" min="0">
+                        </div>
+                        <div class="input-item">
+                            <label><i class="fas fa-minus-circle"></i> Monthly Additional Deduction 2</label>
+                            <input type="number" id="additionalDed2" value="0" step="100" min="0">
+                        </div>
+                    </div>
+                    <div class="result-grid" id="resultGrid"></div>
+                    
+                    <div class="info-note">
+                        <i class="fas fa-info-circle"></i> Take-home = CTC/12 - (Professional Tax + Employee PF + Additional Deductions)
+                    </div>
+                </div>
+                <div class="structure-section">
+                    <div class="section-title" style="font-size:1.4rem; border-bottom:2px solid #f1b24a;">
+                        <i class="fas fa-chart-pie"></i> Monthly Salary Structure
+                    </div>                   
+                    <div class="structure-grid">
+                        <div>
+                            <h3 style="margin-bottom:15px; color:#1d3e62;">🧾 Monthly Salary Breakup</h3>
+                            <table class="breakup-table">
+                                <thead><tr><th>Component</th><th>Calculation</th><th>Amount (₹)</th></tr></thead>
+                                <tbody id="breakupBody"></tbody>
+                              </table
+                        </div>
+                        <div>
+                            <h3 style="margin-bottom:15px; color:#1d3e62;">✂️ Monthly Deductions</h3>
+                            <table class="breakup-table">
+                                <thead><tr><th>Deduction</th><th>Calculation</th><th>Amount (₹)</th></tr></thead>
+                                <tbody id="deductionsBody"></tbody>
+                              </table
+                        </div>
+                    </div>
+                    <div class="inhand-highlight" id="inhandBreakup"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEGOTIATION SECTION -->
+        <section id="negotiation-section" class="section hidden">
+            <div class="section-card">
+                <div class="section-title"><i class="fas fa-handshake"></i> Fresher Negotiation Guide</div>
+                
+                <div class="negotiation-dashboard">
+                    <div class="negotiation-grid">
+                        <div class="negotiation-card">
+                            <div class="card-header">
+                                <i class="fas fa-chess-queen"></i>
+                                <h4>Negotiation Strategy</h4>
+                            </div>
+                            <ul class="strategy-list">
+                                <li>Always give a range: "I'm looking at ₹3.8L to ₹4.5L, depending on the complete package."</li>
+                                <li>Highlight your strengths: Certifications, internships, projects, GitHub portfolio</li>
+                                <li>Ask about variable pay: "What was the average variable payout in the last year?"</li>
+                                <li>Request breakup: "Could you share the fixed and variable component breakup?"</li>
+                                <li>Take time: "Thank you, can I have a day to review the offer?"</li>
+                            </ul>
+                        </div>
+                        <div class="negotiation-card">
+                            <div class="card-header">
+                                <i class="fas fa-quote-right"></i>
+                                <h4>Exact Phrases to Use</h4>
+                            </div>
+                            <ul class="phrase-list">
+                                <li>"Based on my research and industry standards for freshers, I was expecting around ₹4L to ₹4.5L. Is there flexibility in the fixed component?"</li>
+                                <li>"I'm excited about this role. Could you explain the variable pay structure - is it on target or actual performance?"</li>
+                                <li>"What is the breakup between basic, HRA, and special allowance? I want to understand the tax implications."</li>
+                                <li>"Is there any joining/relocation bonus? Are there any bonds or service agreements?"</li>
+                            </ul>
+                        </div>
+                        <div class="negotiation-card">
+                            <div class="card-header">
+                                <i class="fas fa-bolt"></i>
+                                <h4>Power Moves (Fresher Special)</h4>
+                            </div>
+                            <ul class="powermove-list">
+                                <li><strong>Mention competing offers:</strong> If you have genuine offers, mention them politely</li>
+                                <li><strong>Ask for joining bonus:</strong> Instead of base hike, request one-time joining bonus</li>
+                                <li><strong>Request early review:</strong> Ask for 6-month performance review instead of annual</li>
+                                <li><strong>Learning budget:</strong> Inquire about certification/training budget</li>
+                                <li><strong>Stock options:</strong> For startups, ask about ESOPs or equity</li>
+                            </ul>
+                        </div>
+                        <div class="negotiation-card wide">
+                            <div class="card-header">
+                                <i class="fas fa-clipboard-check"></i>
+                                <h4>Before You Sign - Complete Checklist</h4>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                                <ul class="checklist">
+                                    <li><strong>Probation Period:</strong> Confirm duration & salary during probation</li>
+                                    <li><strong>Annual Bonus:</strong> Ask about bonus cycle and typical payout</li>
+                                    <li><strong>PF & Gratuity:</strong> Check if included in CTC calculation</li>
+                                    <li><strong>Notice Period:</strong> Duration and buyback policy</li>
+                                </ul>
+                                <ul class="checklist">
+                                    <li><strong>Bond/Agreement:</strong> Service agreement or penalty for early exit</li>
+                                    <li><strong>Working Hours:</strong> Flexibility, overtime policy</li>
+                                    <li><strong>Leave Policy:</strong> Annual leaves, sick leaves, holidays</li>
+                                    <li><strong>Health Insurance:</strong> Coverage for self and family</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="negotiation-card">
+                            <div class="card-header">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <h4>Common Mistakes to Avoid</h4>
+                            </div>
+                            <ul class="mistake-list">
+                                <li><strong>Single number mistake:</strong> Never state a single fixed number too early</li>
+                                <li><strong>Ignoring variable pay:</strong> Don't assume you'll get 100% variable</li>
+                                <li><strong>Skipping bond details:</strong> Always read agreement carefully</li>
+                                <li><strong>Not reading offer letter:</strong> Never sign without reading thoroughly</li>
+                                <li><strong>Accepting first offer:</strong> Always negotiate, even if it's good</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
