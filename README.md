@@ -3,8 +3,9 @@
 The Freshers Guide is a career guidance website developed to help students and fresh graduates prepare for jobs, placements, and interviews.
 
 In today’s competitive job market, many students face confusion regarding resume preparation, salary structure, interview etiquette, communication skills, and company work culture. This project provides structured module-wise guidance to solve these problems.
-
-   **Modules**
+**
+   ***Modules***
+   
  **1. Dashboard Module**
 Main landing page of the application
 Provides navigation to all modules
